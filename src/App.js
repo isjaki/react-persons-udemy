@@ -2,20 +2,26 @@ import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      persons: [
-        { name: 'Alex', age: 22 },
-        { name: 'Max', age: 28 },
-        { name: 'Stephanie', age: 26 }
-      ]
-    }
+class App extends Component {   
+  state = {
+    persons: [
+      { name: 'Alex', age: 22 },
+      { name: 'Max', age: 28 },
+      { name: 'Stephanie', age: 26 }
+    ]
   }
+  
+  switchNameHandler = () => {
+    //console.log('Was clicked!');
+    // DON'T DO THIS: this.state.persons[0].name = 'Aleksei';
 
-  switchNameHandler() {
-    console.log('Was clicked!');
+    this.setState({
+      persons: [
+        { name: 'Aleksei', age: 22 },
+        { name: 'Max', age: 28 },
+        { name: 'Stephanie', age: 27 }
+      ]
+    });
   }
 
   render() {
